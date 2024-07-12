@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsflbqemnm6ue"]
+
+[ext_resource type="Script" path="res://mainController.gd" id="1_kk7mq"]
+[ext_resource type="Script" path="res://text.gd" id="2_3sgd0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kk7mq")
+metadata/_edit_horizontal_guides_ = [329.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.639216, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 2
+anchor_left = 0.306
+anchor_top = 0.476
+anchor_right = 0.714
+anchor_bottom = 0.631
+offset_left = 0.487976
+offset_top = 0.552002
+offset_right = 0.471924
+offset_bottom = 0.111969
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="holaButton" type="Button" parent="ColorRect/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Hola Button"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="adiosButton" type="Button" parent="ColorRect/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Adios Button"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.358
+anchor_top = 0.16
+anchor_right = 0.648
+anchor_bottom = 0.298
+offset_left = -0.416016
+offset_top = 0.319992
+offset_right = -0.495972
+offset_bottom = -0.104004
+text = "Por defecto"
+language = "spanish"
+script = ExtResource("2_3sgd0")
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.869
+anchor_right = 0.187
+anchor_bottom = 0.955
+offset_left = -0.384003
+offset_top = -0.112
+offset_right = -0.424011
+offset_bottom = 0.159973
+grow_vertical = 0
+text = "Exit"
+
+[connection signal="button_down" from="ColorRect/HBoxContainer/MarginContainer/holaButton" to="." method="_on_hola_button_button_down"]
+[connection signal="button_down" from="ColorRect/HBoxContainer/MarginContainer2/adiosButton" to="." method="_on_adios_button_button_down"]
+[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]
